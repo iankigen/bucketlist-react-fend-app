@@ -70,7 +70,11 @@ class Bucketlist extends React.Component {
                 })
 
             }
-        );
+        ).catch(error => {
+            if(error.response.status === 401){
+                window.location.replace('/login')
+            }
+        });
     }
 
     handleDescChange(e) {
@@ -183,9 +187,13 @@ class Bucketlist extends React.Component {
     };
 
 
-    handleSearch = () =>{
-        this.setState({opensearch: !this.state.opensearch});
-    }
+    handleSearchClose = () =>{
+        this.setState({opensearch: false});
+    };
+
+    handleSearchOpen = () =>{
+        this.setState({opensearch: true});
+    };
 
     handleSearchChange(e) {
         this.setState({search: e.target.value});
@@ -212,7 +220,7 @@ class Bucketlist extends React.Component {
         }).catch(
 
         );
-        this.handleSearch();
+        this.handleSearchClose();
     }
 
 
@@ -265,13 +273,13 @@ class Bucketlist extends React.Component {
                     msg: response.data.message,
                     opensnakbar: true
                 })
+                th.getBucketlist()
             });
         }
         this.setState({
             desc: "",
             error: "This field is required"
         });
-        th.getBucketlist()
     }
 
     handleRequestClose = () => {
@@ -365,7 +373,7 @@ class Bucketlist extends React.Component {
                     </div>
                     <div style={{margin: 15}}>
                         <MuiThemeProvider>
-                            <RaisedButton primary={true} label="Search Bucket list" onClick={this.handleSearch}/>
+                            <RaisedButton primary={true} label="Search Bucket list" onClick={this.handleSearchOpen.bind(this)}/>
                         </MuiThemeProvider>
                     </div>
                 </div>
@@ -406,7 +414,7 @@ class Bucketlist extends React.Component {
             <FlatButton
                 label="Cancel"
                 secondary={true}
-                onClick={this.handleSearch}
+                onClick={this.handleSearchClose.bind(this)}
             />,
             <FlatButton
                 label="Search"
