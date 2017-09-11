@@ -71,7 +71,7 @@ class Bucketlist extends React.Component {
 
             }
         ).catch(error => {
-            if(error.response.status === 401){
+            if(error.response.status === 401 || error.response.status === 403 ){
                 window.location.replace('/login')
             }
         });
