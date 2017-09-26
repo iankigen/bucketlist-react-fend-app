@@ -10,7 +10,7 @@ Bucketlist application using react library that allows a user do the following:
 
 
 ```
-$ git clone https://github.com/iankigen/react-bucket-list.git
+$ git clone https://github.com/iankigen/React-Bucket-List-app.git
 $ cd react-bucket-list
 $ npm install
 ```
