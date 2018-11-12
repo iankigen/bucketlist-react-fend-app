@@ -10,7 +10,7 @@ Bucketlist application using react library that allows a user do the following:
 
 
 ```
-$ git clone https://github.com/iankigen/react-bucket-list.git
+$ git clone https://github.com/iankigen/React-Bucket-List-app.git
 $ cd react-bucket-list
 $ npm install
 ```
@@ -37,6 +37,10 @@ npm start
 | [POST /bucketlists/:id/items](#) | Add a new item to this bucket list. Request should have _goal_ in form data. |
 | [PUT /bucketlists/:id/items/:item_id](#) | Update the bucket list completion status to true. |
 | [DELETE /bucketlists/:id/items/:item_id](#) | Delete this single bucket list item. |
+
+### Testing
+
+[ Link: Bucketlist Front end ](https://bucket-front.herokuapp.com/)
 
 
 
